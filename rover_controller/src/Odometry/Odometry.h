@@ -8,4 +8,5 @@ typedef struct POSE_STRUCT {
     int roll;
 } pose_t;
 
-void vOdometryTask(void* pvParameters);
+void reset_odometry(pose_t new_pose);
+

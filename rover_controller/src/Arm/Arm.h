@@ -8,5 +8,17 @@
 
 #define ARM_SERIAL Serial2
 
-bool armInit();
-void vArmTask(void* pvParameters);
+typedef enum {
+    ARM_IDLE,
+    ARM_STOW,
+    ARM_FULL_EXTEND
+} ArmState;
+
+typedef struct {
+    ArmState state;
+} ArmContext;
+
+
+void armInit(ArmContext *ctx);
+void vArmTask(void *param);
+void armSetState(ArmContext *ctx, ArmState state);

@@ -7,6 +7,17 @@
 #define COMMS_RX 0
 #define COMMS_SERIAL Serial1
 
-bool commsInit();
+typedef enum {
+    COMMS_MANUAL_CONTROL,
+    COMMS_AUTONOMOUS,
+    COMMS_IDLE
+} CommsState;
 
-void vCommsTask(void* pvParameters);
+typedef struct {
+    CommsState state;
+} CommsContext;
+
+
+void commsInit(CommsContext *ctx);
+void vCommsTask(void *param);
+void commsSetState(CommsContext *ctx, CommsState state);
