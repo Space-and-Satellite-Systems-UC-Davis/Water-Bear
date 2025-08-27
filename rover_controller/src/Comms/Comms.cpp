@@ -9,8 +9,13 @@ void commsInit(CommsContext *ctx) {
     xTaskCreate(vCommsTask, "Comms", 2048, ctx, 1, NULL);
 }
 
-void vCommsTask(void *pvParameters)
-{
+void vCommsTask(void *pvParameters) {
+    uint8_t commsBuffer[128];
+    int bytesRead = 0;
+    while(1) {
+        bytesRead = readMessage(commsBuffer, 128);
+        
+    }
 }
 
 void commsSetState(CommsContext *ctx, CommsState state) {

@@ -25,10 +25,9 @@ void writeMessage(HardwareSerial serialPort, uint8_t* buffer, int size) {
 
 bool readMessage(HardwareSerial serialPort, uint8_t* buffer, int size) {
     if (serialPort.available()) {
-        serialPort.readBytes(buffer, size);
-        return true;
+        return serialPort.readBytes(buffer, size);
     }
-    return false;
+    return 0;
 }
 
 bool isConnected(HardwareSerial serialPort) {

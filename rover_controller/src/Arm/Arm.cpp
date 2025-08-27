@@ -9,6 +9,8 @@ void armInit(ArmContext *ctx) {
 }
 
 void vArmTask(void *pvParameters) {
+    ArmContext *ctx = (ArmContext*)pvParameters;
+
 }
 
 void armSetState(ArmContext *ctx, ArmState state) {
